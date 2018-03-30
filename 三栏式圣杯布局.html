@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏式-圣杯布局</title>
+	<style type="text/css">
+		.container{
+			margin:0 300px 0 200px;
+		}
+		.left, .right, .center{
+			float: left;
+			height:300px;
+		}
+		.center{
+			width:100%;
+			background-color: red;
+		}
+		.left{
+			width:200px;
+			margin-left:-100%;
+			background-color: blue;
+			position: relative;
+			left:-200px;
+		}
+		.right{
+			width:300px;
+			margin-left:-300px;
+			background-color: yellow;
+			position:relative;
+			right:-300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="center">
+<ol>
+	<li>通过给父元素设置margin属性来为左右div留位置</li>
+	<li>中间元素放在最前边。左中右都设置float:left，这个时候三个元素并排放，宽度是根据内容来的</li>
+	<li>为中间元素设置width:100%，这时它独占一行，left和right在第二行并排放</li>
+	<li>将lfet和right放在第一行去。通过设置margin负值来做。这里都设置margin-left为负，因为本身都是左浮动，就会向左边移动相应的距离</li>
+	<li>移动到第一行之后，覆盖了center。因此再设置相对定位移出</li>
+</ol>
+		</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+	</div>
+</body>
+</html>
