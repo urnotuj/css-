@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多余字省略号</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+    }
+
+    span,
+    p.single {
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .text-overflow {
+        width: 200px;
+        border: 1px solid black;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        white-space: nowrap;
+    }
+
+    #lines-overflow {
+        border: 1px solid black;
+    }
+
+    #lines-overflow p {
+        /*跨浏览器*/
+        position:relative;
+ 		line-height:1.4em;
+ 		height:2.8em;/*高度设置为行高的两倍，用来显示两行*/
+ 		overflow:hidden; 
+    }
+     #lines-overflow p::after {
+        /*为了添加一个省略号*/
+        content:"...";
+        font-weight:bold;
+        position:absolute;
+        bottom:0;
+        right:0;
+        padding:0 20px 1px 45px;
+        background:url(http://css88.b0.upaiyun.com/css88/2014/09/ellipsis_bg.png) repeat-y;
+    } 
+    </style>
+</head>
+
+<body>
+    <p class="single">1234568524125932250328641316546416</p>
+    <span>1234568524125932250328641316546416</span>
+    <div class="text-overflow">单行文本21316354654748645165745425415452552412201064520468512.426875401</div>
+    <div id="lines-overflow">
+        <p>注意height高度正好是line-height的3倍；结束的省略好用了半透明的png做了减淡的效果，或者设置背景颜色；IE6-7不显示content内容，所以要兼容IE6-7可以是在内容中加入一个标签;要支持IE8，需要将::after替换成:after<a href="http://www.css88.com/archives/5206">参考链接</a>多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本</p>
+    </div>
+</body>
+
+</html>

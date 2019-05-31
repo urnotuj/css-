@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+		}
+		#canvas1, #canvas2,#canvas3,#canvas4{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<canvas id="canvas1" width="300" height="500">矩形</canvas>
+		<canvas id="canvas2" width="300" height="500">绘制路径</canvas>
+		<canvas id="canvas3" width="300" height="500">交替圆形</canvas>
+		<canvas id="canvas4" width="300" height="500">交替圆形</canvas>
+	</div>
+	
+	<script type="text/javascript">
+		var drawingRect = document.getElementById("canvas1");
+		var drawingPath = document.getElementById("canvas2"); 
+		var drawingCircle = document.getElementById("canvas3");
+		var drawingCircle2 = document.getElementById("canvas4");
+		if(drawingRect.getContext){
+			var contextRectangle = drawingRect.getContext("2d"),
+				contextPath = drawingPath.getContext("2d");
+				
+			//填充
+			//contextRectangle.fillStyle = "#0000ff";
+			//描边
+			//contextRectangle.strokeStyle = "red";
+			
+			/*
+			 *绘制矩形方法有fillRect()、strokeRect()、clearRect()
+			 *都接收4个参数：x坐标、y坐标、矩形宽度、矩形高度，单位为像素
+			 */
+			//在画布上绘制矩形，填充的颜色由fillStyle属性指定
+			contextRectangle.fillStyle = "#0000ff";
+			contextRectangle.fillRect(10,10,50,50);
+			
+
+			contextRectangle.fillStyle = "rgba(0,0,255,0.5)";
+			contextRectangle.fillRect(50,50,50,50);
+
+			//在画布上绘制矩形，使用指定的颜色描边
+			contextRectangle.strokeStyle = "#ff0000";
+			contextRectangle.strokeRect(110,110,50,50);
+			/*contextRectangle.fillStyle = "yellow";
+			contextRectangle.fillRect(110,110,50,50);*/
+
+			//清除画布上的矩形区域
+			contextRectangle.clearRect(50,50,10,10);
+
+			//开始路径
+			contextPath.beginPath();	
+
+			contextPath.moveTo(0,0); //线条开始坐标			
+			contextPath.lineTo(200,100); //从上一点开始绘制一条直线，结束坐标		
+			
+			contextPath.moveTo(200,200);//将绘图游标移动到
+			//contextPath.fillStyle = "red";//填充颜色，和fill一起用
+			contextPath.arc(100,200,99,0,2*Math.PI,false);//绘制曲线
+			//contextPath.fill();
+			contextPath.moveTo(190,200);
+			contextPath.arc(100,200,90,0,2*Math.PI,false);
+
+			contextPath.moveTo(100,200);
+			contextPath.lineTo(100,120);
+
+			contextPath.moveTo(100,200);
+			contextPath.lineTo(35,200);
+			//绘制线条
+			contextPath.stroke();
+
+			if(contextPath.strokeText){
+				contextPath.font = "bold 14px Arial";
+				contextPath.textAlign = "center";
+				contextPath.textBaseline = "middle";
+				contextPath.fillText("12",100,120);
+			}
+		}
+		(function drawCircle(){
+			var contextCircle = drawingCircle.getContext("2d");
+			contextCircle.beginPath();
+
+			contextCircle.moveTo(100,100);
+		
+			contextCircle.lineTo(0,100);//扇形的直线，从圆心到圆弧上
+			contextCircle.arc(100,100,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.lineTo(100,100);//扇形的直线，从圆弧上到圆心
+			contextCircle.fill();
+
+			//contextCircle.fillStyle="yellow";
+			//contextCircle.lineTo
+			contextCircle.moveTo(100,100);
+			contextCircle.translate(100,100);
+			contextCircle.rotate(2*Math.PI/3);
+			contextCircle.fillStyle = "yellow";
+			//contextCircle.lineTo(0,100);//扇形的直线，从圆心到圆弧上
+			contextCircle.lineTo(-100,0);//扇形的直线，从圆心到圆弧上
+			//contextCircle.arc(100,100,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.arc(0,0,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			//contextCircle.lineTo(100,100);//扇形的直线，从圆弧上到圆心
+			contextCircle.lineTo(0,0);
+			contextCircle.fill();
+			contextCircle.closePath();
+
+			contextCircle.moveTo(0,0);
+			contextCircle.rotate(2*Math.PI/3);
+			contextCircle.fillStyle = "yellow";
+			//contextCircle.lineTo(0,100);//扇形的直线，从圆心到圆弧上
+			contextCircle.lineTo(-100,0);//扇形的直线，从圆心到圆弧上
+			//contextCircle.arc(100,100,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.arc(0,0,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			//contextCircle.lineTo(100,100);//扇形的直线，从圆弧上到圆心
+			contextCircle.lineTo(0,0);
+			contextCircle.fill();
+			contextCircle.closePath();
+
+			contextCircle.stroke();
+		})();
+		(function drawCircle2(){
+			var contextCircle = drawingCircle2.getContext("2d");
+			contextCircle.beginPath();
+
+			contextCircle.moveTo(100,100);
+contextCircle.fillStyle = "black";
+			contextCircle.translate(100,100);
+			contextCircle.rotate(Math.PI/3);
+			contextCircle.lineTo(-100,0);//扇形的直线，从圆心到圆弧上
+			contextCircle.arc(0,0,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.lineTo(0,0);//扇形的直线，从圆弧上到圆心
+			contextCircle.fill();
+
+
+			//contextCircle.moveTo(100,100);
+			
+			contextCircle.rotate(2*Math.PI/3);
+			
+			//contextCircle.lineTo(0,100);//扇形的直线，从圆心到圆弧上
+			contextCircle.lineTo(-100,0);//扇形的直线，从圆心到圆弧上
+			//contextCircle.arc(100,100,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.arc(0,0,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			//contextCircle.lineTo(100,100);//扇形的直线，从圆弧上到圆心
+			contextCircle.lineTo(0,0);
+			contextCircle.fill();
+			contextCircle.closePath();
+
+			contextCircle.moveTo(0,0);
+			contextCircle.rotate(2*Math.PI/3);
+			//contextCircle.lineTo(0,100);//扇形的直线，从圆心到圆弧上
+			contextCircle.lineTo(-100,0);//扇形的直线，从圆心到圆弧上
+			//contextCircle.arc(100,100,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			contextCircle.arc(0,0,100,Math.PI,4*Math.PI/3,false);//扇形的圆弧
+			//contextCircle.lineTo(100,100);//扇形的直线，从圆弧上到圆心
+			contextCircle.lineTo(0,0);
+			contextCircle.fill();
+			contextCircle.closePath();
+
+			contextCircle.stroke();
+		})();
+	</script>
+</body>
+</html>

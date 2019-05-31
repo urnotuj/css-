@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>毛玻璃test1</title>
+	<style type="text/css">
+		#bbox{
+			width: 635px;
+			height: 674px;
+			margin:5% auto;
+			background:url(images/pic2.jpg) no-repeat;
+			overflow: hidden;
+		}
+		#shadow{
+			width: 451px;
+			height: 450px;
+			margin:112px 92px;
+			border-radius:20px;
+			box-shadow: 0px 0px 12px rgba(0,0,0,0.5);
+			overflow: hidden;
+		}
+		#box{
+			width: 451px;
+			height: 450px;
+			position:relative;
+			/* mask-image:url(images/pic2.jpg);
+			-webkit-mask-image:url(images/pic2.jpg); */
+		}
+		#bar{
+			width: 451px;
+			height: 450px;
+			float:left;
+			top:0px;
+			position:absolute;
+			background-color: rgba(255,255,255,0.30);
+			overflow: hidden;
+		}
+		#momo{
+			width: 451px;
+			height: 450px;
+			float:left;
+			filter:blur(5px);
+			filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=5,MakeShadow=false);
+			-webkit-filter:blur(5px);
+			-moz-filter:blur(5px);
+			/* background:url(images/default.png) no-repeat center center; */
+			top:0px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="bbox">
+		<div id="shadow">
+			<div id="box">
+				<div id="momo">111111</div>
+				<div id="bar">dsrtfetfregv</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

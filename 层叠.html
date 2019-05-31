@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>层叠</title>
+	<style type="text/css">
+		.box1, .box2{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			border:1px solid black;
+		}
+		.box1{
+			z-index: 9;
+		}
+		.box2{
+			z-index:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div>第一个box中的绝对定位元素</div>
+	</div>
+	<div class="box2">
+		<div>第二个box中的绝对定位元素</div>
+	</div>
+</body>
+</html>

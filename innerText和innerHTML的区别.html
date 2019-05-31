@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DHtml举例12</title>
+    <style>
+    body {
+        font-family: "宋体";
+        color="blue";
+        font-size="9pt"
+    }
+    </style>
+    <script language="JavaScript">
+    function changeText() {
+        var dt = document.getElementById('changeByT')；
+        dt.innerText = "我很好!";
+    } //function
+
+    function changeHtml() {
+        var dh = document.getElementById('changeByH');
+        dh.innerHTML = "<i><u>我姓肖!</u></i>";
+    } //function
+
+    function back() {
+        var dt = document.getElementById('changeByT')；
+        var dh = document.getElementById('changeByH');
+        dt.innerText = "您好吗?通过innerText";
+        dh.innerHTML = "您姓什么?通过innerHTML";
+    }
+    </script>
+</head>
+<body>
+    <p>
+        <font color="gray">请点击下边的文字……</font>
+        <ul>
+            <li id="changeByT" onclick="changeText()">您好吗?通过innerText改变 </li>
+            <li id="changeByH" onclick="changeHtml()">您姓什么?通过innerHTML改变 </li>
+            <li onclick="back()">恢复原样! </li>
+        </ul>
+</body>
+
+</html>

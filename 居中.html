@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .container {
+        border: 1px solid black;
+        height: 500px;
+        width: 500px;
+        position: relative;
+    }
+
+    .content {
+        border: 1px solid red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container2 {
+        position: relative;
+        border: 1px solid black;
+        height: 500px;
+        width: 500px;
+    }
+
+    .content2 {
+        border: 1px solid red;
+        height: 100px;
+        width: 100px;
+        margin-top: -50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -50px;
+    }
+     .container3 {
+        position: relative;
+        border: 1px solid black;
+        height: 500px;
+        width: 500px;
+    }
+    .content3{
+    	border: 1px solid red;
+    position: absolute;
+    margin:auto;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    width:100px;
+    height: 100px;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">111</div>
+    </div>
+    <div class="container2">
+        <div class="content2">222</div>
+    </div>
+     <div class="container3">
+        <div class="content3">333</div>
+    </div>
+</body>
+
+</html>

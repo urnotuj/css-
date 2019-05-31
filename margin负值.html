@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>margin负值情况</title>
+    <style type="text/css">
+    #div1 {
+        background-color: red;
+        display: inline-block;
+        width: 500px;
+        height: 200px;
+    }
+
+    #div2 {
+        background-color: yellow;
+        margin-left: -200px;
+        display: inline-block;
+        width: 500px;
+        height:200px;
+    }
+    </style>
+</head>
+
+<body>
+    <span id="div1">我是第一个div，不浮动无定位</span>
+    <div id="div2">我是第二个div，不浮动无定位。但是我的margin-left为负值，因此左移覆盖了第一个div</div>
+</body>
+
+</html>

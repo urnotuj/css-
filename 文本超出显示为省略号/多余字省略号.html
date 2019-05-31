@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多余字省略号</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+    }
+
+    span,
+    p.single {
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .text-overflow {
+        width: 200px;
+        border: 1px solid black;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        white-space: nowrap;
+    }
+
+    #lines-overflow {
+        border: 1px solid black;
+    }
+    </style>
+</head>
+
+<body>
+    <p class="single">1234568524125932250328641316546416</p>
+    <span>1234568524125932250328641316546416</span>
+    <div class="text-overflow">单行文本21316354654748645165745425415452552412201064520468512.426875401</div>
+    <div id="lines-overflow">
+        <p>多行文本用js截取。多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本多行文本</p>
+    </div>
+    <script type="text/javascript">
+    var context = document.getElementById('lines-overflow');
+    var textCon = context.innerHTML;
+    context.innerHTML = textCon.substring(0, 36) + "...";
+    </script>
+</body>
+
+</html>
